@@ -11,6 +11,7 @@ from .chatbot import query_db_view
 class TeamsView (APIView):
 
     def get(self,request):
+        print("TEAM REQUEST RECEIVED")
         teams = Teams.objects.all()
         teams_serialize = TeamsSerializer(teams,many = True)
 
@@ -23,6 +24,7 @@ class TeamsView (APIView):
 class SprintView (APIView) : 
 
     def get(self,request):
+        print("SPRINT REQUEST RECEIVED")
         sprints = Sprint.objects.all()
         sprint_serialize = SprintSerializer(sprints,many = True)
 
@@ -35,6 +37,8 @@ class SprintView (APIView) :
 class metricsView (APIView):
   
     def get (self ,request,team_name,sprint_name):
+
+        print("METRICS REQUEST RECEIVED")
 
         team = Teams.objects.get(name = team_name)
         team_id = team.id

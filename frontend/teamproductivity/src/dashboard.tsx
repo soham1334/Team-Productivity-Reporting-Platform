@@ -25,9 +25,13 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchDropdowns = async () => {
       try {
+        console.log("SENDING TEMS AND SPRINT REQUEST")
+        console.log("VITE_TEAM_API:", import.meta.env.VITE_TEAM_API);
+        console.log("VITE_SPRINTS_API:", import.meta.env.VITE_SPRINTS_API);
+
         const [teamRes, sprintRes] = await Promise.all([
-          axios.get("http://127.0.0.1:8000/API/v2/teams"),
-          axios.get("http://127.0.0.1:8000/API/v2/sprints"),
+          axios.get(`${import.meta.env.VITE_TEAM_API}`),
+          axios.get(`${import.meta.env.VITE_SPRINTS_API}`),
         ]);
 
         const teamList = teamRes.data.teams;
@@ -53,7 +57,7 @@ export default function Dashboard() {
 
       try {
         const res = await axios.get(
-          `http://127.0.0.1:8000/API/v2/metrics/${selectedTeam}/${selectedSprint}`
+          `${import.meta.env.VITE_METRICS_API}/${selectedTeam}/${selectedSprint}`
         );
         setChartData([res.data]);
       } catch {
@@ -79,7 +83,7 @@ export default function Dashboard() {
           }}
           className="px-4 py-2 border border-gray-300 rounded-md shadow-sm"
         >
-          {teams.map((team) => (
+          {teams?.map((team) => (
             <option key={team} value={team}>
               {team}
             </option>
@@ -91,7 +95,7 @@ export default function Dashboard() {
           onChange={(e) => setSelectedSprint(e.target.value)}
           className="px-4 py-2 border border-gray-300 rounded-md shadow-sm"
         >
-          {sprints.map((sprint) => (
+          {sprints?.map((sprint) => (
             <option key={sprint} value={sprint}>
               {sprint}
             </option>

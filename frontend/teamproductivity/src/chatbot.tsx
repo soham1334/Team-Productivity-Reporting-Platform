@@ -17,7 +17,7 @@ export default function Chatbot({ onClose }: { onClose: () => void }) {
     const query = { user_query: input };
 
     try {
-      const res = await axios.post("http://127.0.0.1:8000/API/v2/chatbot/", query);
+      const res = await axios.post(`${import.meta.env.VITE_CHATBOT_API}`, query);
       const botMessage: Message = ["Bot", res.data.response];
       setMessages([...updated, botMessage]);
     } catch (error) {
