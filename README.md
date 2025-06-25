@@ -1,5 +1,17 @@
 # 🧩 Team Productivity Reporting Platform (Prototype)
 
+[![Live Demo](https://img.shields.io/badge/Visit%20Live%20Site-Vercel-black?style=for-the-badge&logo=vercel)](https://team-productivity-reporting-platfor.vercel.app)
+
+> 🌐 **Live Website**: [https://team-productivity-reporting-platfor.vercel.app](https://team-productivity-reporting-platfor.vercel.app)
+
+![Dashboard Screenshot](<img width="947" alt="image" src="https://github.com/user-attachments/assets/1dd8b5aa-d9f8-4d59-8641-7e6eb7dd2f04" />
+
+![Screenshot 2025-06-25 175347](https://github.com/user-attachments/assets/383dccad-d8db-4e31-b33b-3dc2faf35274)
+
+)
+
+
+
 This is a **prototype** of the Team Productivity Reporting Platform, developed as part of the **Godspeed Remote Internship Program**.
 
 The platform provides a dashboard for visualizing key sprint metrics like **Sprint Velocity** and **Mean Time to Resolve (MTTR)** across different development teams. It also supports **natural language queries** for retrieving data using **LangChain’s Text-to-SQL** capabilities.
